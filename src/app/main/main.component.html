@@ -1,0 +1,29 @@
+
+Local<br>
+<video  [srcObject]="this.localStream"  width="320" height="240" style="border:1px solid black">
+</video>
+<br><br>
+<button (click)="getMedia()">start</button>
+<button (click)="closeMedia()">stop</button>
+
+<br><br><br>
+
+
+
+<button (click)="logConnectionStatus()">log connection status</button><button (click)="terminateConnection()">reset peer-connection </button><br><br>
+{{ this.connection.connectionState }}
+{{ this.connection | json}}<br><br>
+<b>Local description:</b><br> {{ this.connection.localDescription | json}}<br>
+<b>Remote description:</b><br> {{ this.connection.remoteDescription | json}}
+<br><br>
+<button class="connection-button" (click)="createOfferAndSetLocalDescription()">create  localdescription / offer</button>
+<br>
+
+<button class="connection-button"  (click)="acceptRemoteOffer(); createAnswer()">accept recieved offer & create answer</button> <input [(ngModel)]="receivedOffer" type="text">
+
+<br>
+
+<button class="connection-button"  (click)="acceptRemoteAnswer()">accept remote  answer</button><input [(ngModel)]="receivedAnswer" type="text">
+<br><br><br>
+<br><br><br>
+<input [(ngModel)]="textToSend" type="text"><button (click)="sendText()">send</button>

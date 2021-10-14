@@ -1,15 +1,22 @@
 
-Local<br>
-<video  [srcObject]="this.localStream"  width="320" height="240" style="border:1px solid black">
+<h3>Local</h3>
+<video  [srcObject]="localStream"  width="320" height="240" style="border:1px solid black" autoplay>
 </video>
 <br><br>
-<button (click)="getMedia()">start</button>
+webcam<br>
+<button (click)="getMedia(captureSource.webcam)">start</button>
 <button (click)="closeMedia()">stop</button>
-
+<br><br>
+screen<br>
+<button (click)="getMedia(captureSource.screencap)">start</button>
+<button (click)="closeMedia()">stop</button>
 <br><br><br>
+<h3>Remote</h3>
+<video  [srcObject]="localStream"  width="320" height="240" style="border:1px solid black" autoplay>
+</video>
 
 
-
+<h3>Manual connection</h3>
 <button (click)="logConnectionStatus()">log connection status</button><button (click)="terminateConnection()">reset peer-connection </button><br><br>
 {{ this.connection.connectionState }}
 {{ this.connection | json}}<br><br>
